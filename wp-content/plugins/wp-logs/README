@@ -1,0 +1,15 @@
+WP-Logs
+Custom event logging for Wordpress developers.
+Google Analytics code adapted from there4 development.
+
+To install, copy the plugin files to your Wordpress plugins directory and activate it in the admin area. Then add the following line to your scripts:
+
+$EventLog = new EventLog(array(
+	'event' => 'Login Successful',
+	'text' => var_export($_REQUEST,1),
+	'user_id' => $user_id
+));
+
+The only required parameter is 'event' and you can supply any value you'd like for text.
+
+To have your events posted to Google Analytics, add your UA code to line 25 of analytics_events.php. If you are using Yoast's Google Analytics plugin, you can skip this step.
